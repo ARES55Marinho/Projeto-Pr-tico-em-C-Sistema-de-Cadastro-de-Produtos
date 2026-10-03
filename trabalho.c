@@ -4,7 +4,7 @@
 #include <string.h>
 #include <windows.h>
 
-#define lproduto "produto.txt"
+#define lproduto "produto.csv"
 #define TAM 100
 
 typedef struct {
