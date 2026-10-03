@@ -81,22 +81,48 @@ void cadastrar() {
 
 
 
+
 /* =========================
-   Conferir opção do menu
+   Função para listar Produtos
    ========================= */
-int confere(int *Menu) {
+void listarp() {
 
-    if (scanf("%d", Menu) != 1) {
+    Produto p;
+    char linha[250];
 
-        printf("\nDigite apenas os numeros dentre as opcoes!\n");
+    FILE *f = fopen(lproduto, "r");
 
-        while (getchar() != '\n');
-
-        return 0;
+    if (f == NULL) {
+        printf("Arquivo não encontrado.\n");
+        system("pause");
+        return;
     }
 
-    return 1;
+    system("cls");
+
+    printf("\n");
+    printf("====================================================================\n");
+    printf("                    LISTA DE PRODUTOS CADASTRADOS                   \n");
+    printf("====================================================================\n");
+
+    while (fgets(linha, sizeof(linha), f) != NULL) {
+
+        sscanf(linha, "%99[^;];%99[^;];%f",
+               p.nome,
+               p.categoria,
+               &p.preco);
+
+        printf("\nNome: %s\n", p.nome);
+        printf("Categoria: %s\n", p.categoria);
+        printf("Preco: R$ %.2f\n", p.preco);
+
+        printf("--------------------------------------------------------------------\n");
+    }
+    fclose(f);
+    system("pause");
 }
+
+
 
 
 
@@ -178,6 +204,26 @@ void buscarPorCategoria() {
 
 
 
+/* =========================
+   Conferir opção do menu
+   ========================= */
+int confere(int *Menu) {
+
+    if (scanf("%d", Menu) != 1) {
+
+        printf("\nDigite apenas os numeros dentre as opcoes!\n");
+
+        while (getchar() != '\n');
+
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
 
 
 /* =========================
@@ -219,7 +265,7 @@ while (!confere(&Menu)) {
 
             case 2:
                 printf("\n========== LISTA DE PRODUTOS ==========\n");
-                buscarPorNome();
+                listarp();
                 break;
 
             case 3:
