@@ -1,0 +1,52 @@
+// Função para buscar por nome
+void buscarPorNome() {
+    char busca[100], linha[200];
+    int encontrado = 0;
+    FILE *f = fopen(ARQUIVO, "r");
+
+    if(f == NULL) {
+        printf("Arquivo não encontrado.\n");
+        return;
+    }
+
+    printf("Digite o nome do produto: ");
+    scanf(" %[^\n]", busca);
+
+    while(fgets(linha, sizeof(linha), f)) {
+        Produto p;
+        sscanf(linha, "%99[^;];%49[^;];%f", p.nome, p.categoria, &p.preco);
+        if(strcmp(p.nome, busca) == 0) {
+            printf("\nProduto encontrado!\nNome: %s\nCategoria: %s\nPreço: R$ %.2f\n", p.nome, p.categoria, p.preco);
+            encontrado = 1;
+        }
+    }
+    if(!encontrado) printf("Produto não encontrado.\n");
+    fclose(f);
+}
+
+// Função para buscar por categoria
+void buscarPorCategoria() {
+    char busca[50], linha[200];
+    int encontrado = 0;
+    FILE *f = fopen(ARQUIVO, "r");
+
+    if(f == NULL) {
+        printf("Arquivo não encontrado.\n");
+        return;
+    }
+
+    printf("Digite a categoria: ");
+    scanf(" %[^\n]", busca);
+
+    printf("\nProdutos encontrados:\n");
+    while(fgets(linha, sizeof(linha), f)) {
+        Produto p;
+        sscanf(linha, "%99[^;];%49[^;];%f", p.nome, p.categoria, &p.preco);
+        if(strcmp(p.categoria, busca) == 0) {
+            printf("%s - R$ %.2f\n", p.nome, p.preco);
+            encontrado = 1;
+        }
+    }
+    if(!encontrado) printf("Nenhum produto encontrado nessa categoria.\n");
+    fclose(f);
+}
