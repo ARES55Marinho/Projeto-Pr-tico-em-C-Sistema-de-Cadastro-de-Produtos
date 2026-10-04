@@ -1,0 +1,68 @@
+void atualizar () {
+	int encontrou = 0;
+	Produto p;
+	FILE *arquivo;
+	FILE *temp;
+	
+	arquivo = fopen(ARQUIVO, "r");
+	temp = fopen("temp.csv", "w");
+	
+	char linha[250];
+	char nomeBusca[100];
+    
+    if (arquivo == NULL) {
+        printf("A agenda esta vazia.\n");
+        return;
+	}
+    if (temp == NULL) {
+        printf("\nErro ao criar arquivo temporario.\n");
+        fclose(arquivo);
+        return;
+		}
+		
+		    printf("Digite o nome do produto que deseja atualizar: ");
+    scanf(" %99[^\n]", nomeBusca);
+    
+    while (fgets(linha, 250, arquivo) != NULL) {
+    	
+        char copia[250];
+        strcpy(copia, linha);
+        
+        strcpy(p.nome, strtok(copia, ";"));
+        strcpy(p.categoria, strtok(NULL, ";"));
+        
+         if (strcmp(p.nome, nomeBusca) == 0) {
+	
+        	encontrou = 1;
+        	
+        	printf("Digite o novo nome: ");
+            scanf(" %99[^\n]", p.nome);
+        	
+        	printf("Digite a nova categoria: ");
+            scanf(" %99[^\n]", p.categoria);
+			
+			printf("Novo preco: R$ ");
+            scanf("%f", &p.preco);
+            
+			fprintf(temp, "%s;%s;%.2f\n",
+                p.nome,
+                p.categoria,
+                p.preco);
+		}
+		else {
+            fprintf(temp, "%s", linha);
+		}
+	}
+	fclose(arquivo);
+    fclose(temp);
+
+    remove(ARQUIVO);
+    rename("temp.csv", ARQUIVO);
+
+    if (encontrou == 1) {
+        printf("Produto atualizado com sucesso!\n");
+    }
+    else {
+        printf("Produto nao encontrado.\n");
+    }
+}
