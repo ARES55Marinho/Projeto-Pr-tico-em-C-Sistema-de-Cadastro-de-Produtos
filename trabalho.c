@@ -24,6 +24,13 @@ int conferir(float *preco) {
         return 0;
     }
 
+    if (*preco <= 0) {
+
+        printf("\nPor favor, digite um preco maior do que 0!\n");
+
+        return 0;
+    }
+
     return 1;
 }
 
@@ -59,6 +66,7 @@ void cadastrar() {
         printf("Digite o preco novamente: ");
     }
 
+    
     fprintf(arquivo, "%s;%s;%.2f\n",
             p.nome,
             p.categoria,
@@ -534,6 +542,10 @@ int main() {
                 system("pause");
         }
 
+    } while (Menu != 0);
+
+    return 0;
+}
     } while (Menu != 0);
 
     return 0;
