@@ -481,7 +481,7 @@ int main() {
 
         system("cls");
 
-        printf("\n=========================== CONTROLE DE PRODUTOS ===========================\n");
+        printf("\n=========================== Paragon Informatica ===========================\n");
 
         printf("\n1 - Cadastrar produto");
         printf("\n2 - Listar produtos");
