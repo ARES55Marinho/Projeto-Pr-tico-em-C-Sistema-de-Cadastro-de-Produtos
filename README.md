@@ -1,7 +1,7 @@
 # Sistema de Controle de Produtos
 
 ## 📚 Turma
-Turma de Programação em C – 2026
+Algoritmos e Pensamento Computacional(Matutino) – 2026
 
 ## 👥 Integrantes
 - Matheus Henrique Barros da Costa
@@ -29,6 +29,6 @@ O objetivo é oferecer uma solução prática e organizada para manipulação de
 - Sistema operacional Windows (o código utiliza funções específicas como `system("cls")` e `system("pause")`).
 
 ### Compilação
-No compilador, compile e execute o tabalho.c. **`escolhor_opções()`**
-- Após execução o terminal abrirá para que possa interagir.
-gcc main.c -o sistema.exe
+- No compilador, abra, compile e execute o **`trabalho.c()`**
+- Após execução o terminal abrirá para interagir.
+
