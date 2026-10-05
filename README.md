@@ -1,4 +1,4 @@
-# Sistema de Controle de Produtos
+# Sistema de Controle de Produtos Paragon Informática
 
 ## 📚 Turma
 Algoritmos e Pensamento Computacional(Matutino) – 2026
