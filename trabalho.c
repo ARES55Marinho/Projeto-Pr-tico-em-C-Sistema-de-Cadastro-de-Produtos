@@ -258,7 +258,11 @@ void buscarPreco() {
     while (!conferir(&precoMax)) {
         printf("Digite o preco maximo novamente: R$ ");
     }
-
+	if (precoMin >= precoMax) {
+				printf("preço min não pode ser maior que preço max\n");
+				system("pause");
+				return;
+			}
     while (fgets(linha, sizeof(linha), arquivo)) {
 
         Produto p;
