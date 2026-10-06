@@ -32,3 +32,5 @@ O objetivo é oferecer uma solução prática e organizada para manipulação de
 - No compilador, abra, compile e execute o **`trabalho.c()`**
 - Após execução o terminal abrirá para interagir.
 
+## Link Youtube
+- https://youtu.be/bpENIgxiY-s
