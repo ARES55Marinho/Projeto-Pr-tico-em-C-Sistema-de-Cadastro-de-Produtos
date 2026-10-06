@@ -34,6 +34,7 @@ int conferir(float *preco) {
     return 1;
 }
 
+
 void cadastrar() {
 
     Produto p;
@@ -267,7 +268,7 @@ void buscarPreco() {
         printf("Digite o preco maximo novamente: R$ ");
     }
 	if (precoMin >= precoMax) {
-				printf("preço min não pode ser maior que preço max\n");
+				printf("preco minimo não pode ser maior que preco maximo\n");
 				system("pause");
 				return;
 			}
@@ -479,6 +480,31 @@ void atualizar() {
     system("pause");
 }
 
+
+/* =========================
+   Conferir opção do menu
+   ========================= */
+int confere(int *Menu) {
+
+    if (scanf("%d", Menu) != 1) {
+
+        printf("\nDigite apenas os numeros dentre as opcoes!\n");
+
+        while (getchar() != '\n');
+
+        return 0;
+    }
+
+    if (*Menu < 0 || *Menu > 7) {
+
+        printf("\nDigite apenas os numeros dentre as opcoes!\n");
+
+        return 0;
+    }
+
+    return 1;
+}
+
 int main() {
 
     setlocale(LC_ALL, "");
@@ -501,7 +527,10 @@ int main() {
         printf("\n0 - Sair");
 
         printf("\n\nEntre com a opcao desejada: ");
-        scanf("%d", &Menu);
+        
+        while (!confere(&Menu)) {
+    printf("Digite a opcao novamente: ");
+}
 
         switch (Menu) {
 
@@ -542,10 +571,6 @@ int main() {
                 system("pause");
         }
 
-    } while (Menu != 0);
-
-    return 0;
-}
     } while (Menu != 0);
 
     return 0;
